@@ -4,47 +4,91 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    background-color: #badced;
+
+}
+
+h2{
+    margin: 0;
 }
 
 #books-wrapper{
-
+    padding: 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 10px;
 }
 
 #books-wrapper > .book-wrapper{
+    background-color: whitesmoke;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr .5fr;
     grid-template-areas: 
     "title title"
     "author author"
     "pages pages"
-    "remove read"
+    "button button"
     ;
-    border-radius: 20px;
+    box-shadow: 10px 10px 40px -16px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    height: 40vh;
 }
 
 #books-wrapper > .book-wrapper > .book-title{
     grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #859de5;
     color: azure;
-
+    font-size: 2em;
+    font-weight: 800;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
 }
 
 #books-wrapper > .book-wrapper > .book-author{
     grid-area: author;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
 #books-wrapper > .book-wrapper > .book-pages{
     grid-area: pages;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 600;
 }
 
-#books-wrapper > .book-wrapper > .remove-button{
-    grid-area: remove;
-
+#books-wrapper > .book-wrapper > .buttons-wrapper {
+    grid-area: button;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-#books-wrapper > .book-wrapper > .read-status-button{
-    grid-area: read;
+#books-wrapper > .book-wrapper > .buttons-wrapper  > .remove-button{
+    border: none;
+    background-color: lightcoral;
+    color: white;
+    font-size: 1.6em;
+    font-weight: 600;
+    cursor: pointer;
+}
 
+#books-wrapper > .book-wrapper > .buttons-wrapper  > .read-status-button{
+    border: none;
+    background-color: lightgreen;
+    color: white;
+    font-size: 1.6em;
+    font-weight: 600;
+    cursor: pointer;
 }

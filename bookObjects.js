@@ -2,7 +2,7 @@ const booksWrapper = document.getElementById("books-wrapper");
 const newBookButton = document.getElementById("new-book");
 const updateButtons = document.querySelectorAll(".update");
 
-let myLibrary = [new Book("hee", "haw", '4234', true)]
+let myLibrary = [new Book("hee", "haw", '4234', true), new Book("The Hobbit", "J.R.R. Tolkien", 421, true), new Book("The Lord of the Rings: The Fellowship of the Ring", "J.R.R. Tolkien", 637, true)]
 
 function Book(title = "", author = "", pages = 0, haveRead = false){
     this.title = title
@@ -46,36 +46,44 @@ function updateDOM(){
     let index = 0;
     myLibrary.map(book => {
         //Create book wrapper
-        let bookWrapperDiv = document.createElement('div');
+        const bookWrapperDiv = document.createElement('div');
         bookWrapperDiv.classList.add('book-wrapper');
         bookWrapperDiv.dataset.index = index
         booksWrapper.appendChild(bookWrapperDiv);
 
+        
+
+
         //add book to div
-        const title = document.createElement('h2');
-        title.textContent = "Title: " + book.title;
+        const title = document.createElement('div');
+        title.textContent = book.title;
         title.classList.add('book-title');
         bookWrapperDiv.appendChild(title);
 
-        const author = document.createElement('h2');
+        const author = document.createElement('div');
         author.textContent = "Author: " + book.author;
         author.classList.add('book-author');
         bookWrapperDiv.appendChild(author);
         
-        const pages = document.createElement('h2');
+        const pages = document.createElement('div');
         pages.textContent = "Pages: " + book.pages;
         pages.classList.add('book-pages');
         bookWrapperDiv.appendChild(pages);
+
+        //Buttons Wrapper
+        const buttonsDiv = document.createElement('div');
+        buttonsDiv.classList.add('buttons-wrapper');
+        bookWrapperDiv.appendChild(buttonsDiv);
 
         //Remove button
         const removeButton = document.createElement('button');
         removeButton.classList.add("remove-button");
         removeButton.textContent = "Remove";
-        bookWrapperDiv.appendChild(removeButton);
+        buttonsDiv.appendChild(removeButton);
 
         removeButton.addEventListener('click', () => {
             bookWrapperDiv.remove();
-            myLibrary.splice(removeButton.parentElement.dataset.index, 1);
+            myLibrary.splice(removeButton.parentElement.parentElement.dataset.index, 1);
         })
 
         //Read Status Button
@@ -89,7 +97,7 @@ function updateDOM(){
         const readStatusButton = document.createElement('button');
         readStatusButton.classList.add('read-status-button');
         readStatusButton.textContent = readStatusText();
-        bookWrapperDiv.appendChild(readStatusButton);
+        buttonsDiv.appendChild(readStatusButton);
 
         readStatusButton.addEventListener('click', () => {
             book.read = !book.read;
