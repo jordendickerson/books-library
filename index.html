@@ -5,12 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <script src="./bookObjects.js" defer></script>
 </head>
 <body>
-    <h1>Books</h1>
-    <button id="new-book">NEW BOOK</button>
+    <div class="header">
+        <div class="title">Library</div>
+        <div class="add-book-text">Add Book</div>
+        <form action="" class="new-book" method="">
+            <input id="title-input" type="text" name="title" placeholder="Title" required>
+            <input id="author-input" type="text" name="author" placeholder="Author" required>
+            <input id="pages-input" type="number" name="pages" placeholder="Pages" required>
+            <select name="read" id="read">
+                <option value="haveRead">I have read this book</option>
+                <option value="haveNotRead">I have not read this book</option>
+            </select>
+            
+        </form>
+        <button id="submit-button"><svg viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20 14H14V20H10V14H4V10H10V4H14V10H20V14Z" />
+            </svg></button>
+    </div>
     <div id="books-wrapper">
 
     </div>

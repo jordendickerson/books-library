@@ -1,6 +1,11 @@
 const booksWrapper = document.getElementById("books-wrapper");
-const newBookButton = document.getElementById("new-book");
 const updateButtons = document.querySelectorAll(".update");
+
+const titleInput = document.getElementById("title-input");
+const authorInput = document.getElementById("author-input");
+const pagesInput = document.getElementById("pages-input");
+const readInput = document.getElementById("read");
+const submitButton = document.getElementById("submit-button");
 
 let myLibrary = [new Book("hee", "haw", '4234', true), new Book("The Hobbit", "J.R.R. Tolkien", 421, true), new Book("The Lord of the Rings: The Fellowship of the Ring", "J.R.R. Tolkien", 637, true)]
 
@@ -12,23 +17,20 @@ function Book(title = "", author = "", pages = 0, haveRead = false){
 }
 
 //Add book to library
-function addBookToLibrary() {
-    let title = prompt("What is the title of the book?");
-    let author = prompt("What is the name of the author?");
-    let pages = prompt("How many pages are in the book?");
-    let hasRead = undefined;
-    while (hasRead === undefined){
-        let read = prompt("Have you read this book? (y/n)");
-        if (read === 'y'){
-            hasRead = true;
-            break;
-        }else if (read === 'n'){
-            hasRead = false;
-            break;
-        }
+function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookHasBeenRead) {
+    let title = bookTitle.value;
+    let author = bookAuthor.value;
+    let pages = bookPages.value;
+    let hasRead = bookHasBeenRead.value;
+    let read;
+
+    if (hasRead === "haveRead"){
+        read = true;
+    }else{
+        read = false;
     }
 
-    const newBook = new Book(title, author, pages, hasRead);
+    const newBook = new Book(title, author, pages, read);
     
     myLibrary.push(newBook);
 
@@ -110,7 +112,15 @@ function updateDOM(){
     
 }
 
-newBookButton.addEventListener('click', () => {
-    addBookToLibrary();
+
+
+submitButton.addEventListener("click", () => {
+    if (titleInput.value && authorInput.value && pagesInput.value){
+        addBookToLibrary(titleInput, authorInput, pagesInput, readInput);
+        titleInput.value = "";
+        authorInput.value = "";
+        pagesInput.value = "";
+        readInput.value = "haveRead";
+    }
 })
 updateDOM();

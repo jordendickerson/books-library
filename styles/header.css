@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
+/* HEADER */
+.header{
+    background-color: #4b5a88;
+    color: white;
+    padding: 20px;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    align-items: center;
+    font-family: "Fredoka One", sans-serif;
+    box-shadow: 0px 13px 26px -4px rgba(0,0,0,0.5);
+}
+
+/* TITLE */
+.header > .title {
+    font-size: 4em;
+}
+/* ADD BOOK */
+.header > .add-book-text {
+    font-size: 2em;
+}
+/* ADD BOOK FORM */
+.header > form {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+/* ADD BOOK INPUTS */
+.header > form > input {
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+.header > form > input:focus-visible{
+    outline: none;
+    border-bottom: 3px solid #120907;
+}
+
+/* ADD BOOK READ STATUS SELECT */
+.header > form > select {
+    font-size: 1.2em;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+}
+
+.header > form > select:focus-visible {
+    outline: none;
+}
+
+/* ADD BOOK BUTTON */
+.header >  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(81, 172, 81);
+    color: whitesmoke;
+    padding: 5px;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header > button:hover {
+    background-color: rgb(68, 145, 68);
+}
+
+.header > button > svg {
+    width: 2.5em;
+}
