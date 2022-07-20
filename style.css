@@ -71,8 +71,6 @@ h2{
     grid-area: button;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 #books-wrapper > .book-wrapper > .buttons-wrapper  > .remove-button{
@@ -82,13 +80,25 @@ h2{
     font-size: 1.6em;
     font-weight: 600;
     cursor: pointer;
+    border-bottom-left-radius: 10px;
+    transition: 0.3s;
+}
+
+#books-wrapper > .book-wrapper > .buttons-wrapper  > .remove-button:hover{
+    background-color: rgb(192, 98, 98);
 }
 
 #books-wrapper > .book-wrapper > .buttons-wrapper  > .read-status-button{
     border: none;
-    background-color: lightgreen;
+    background-color: #181f35;
     color: white;
     font-size: 1.6em;
     font-weight: 600;
     cursor: pointer;
+    border-bottom-right-radius: 10px;
+    transition: 0.3s;
+}
+
+#books-wrapper > .book-wrapper > .buttons-wrapper  > .read-status-button:hover{
+    background-color: #0f1322;
 }
