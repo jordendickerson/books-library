@@ -7,14 +7,19 @@ const pagesInput = document.getElementById("pages-input");
 const readInput = document.getElementById("read");
 const submitButton = document.getElementById("submit-button");
 
+class Book {
+    constructor(title = "", author = "", pages = 0, haveRead = false){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = haveRead;
+    }
+    
+}
+
 let myLibrary = [new Book("hee", "haw", '4234', true), new Book("The Hobbit", "J.R.R. Tolkien", 421, true), new Book("The Lord of the Rings: The Fellowship of the Ring", "J.R.R. Tolkien", 637, true)]
 
-function Book(title = "", author = "", pages = 0, haveRead = false){
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = haveRead;
-}
+
 
 //Add book to library
 function addBookToLibrary(bookTitle, bookAuthor, bookPages, bookHasBeenRead) {
